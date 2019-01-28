@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Nodemyn - MySQL Admin</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/stylesheets/w3.css' />
-  </head>
-  <body>
-    <h1>Nodemyn - MySQL Admin</h1>
-    
-    <div class="w3-container w3-mobile w3-display-container w3-border w3-border-red" style="height: 500px;">
-        <form class="w3-display-middle" action="/login" method="POST">
-          <input type="text" name="user[username]" placeholder="Login">
-          <input type="password" name="user[password]" placeholder="Senha">
-          <input type="text" name="user[database]" placeholder="Database">
-          <button type="submit">Entrar</button>
-        </form>
+
+<head>
+  <title>Nodemyn - MySQL Admin</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/custom.css' />
+  <link rel='stylesheet' href='/stylesheets/w3.css' />
+</head>
+
+<body>
+  <h1>Nodemyn - MySQL Admin</h1>
+
+  <form class="w3-container" action="/login" method="post">
+
+    <div class="w3-row">
+
+      <div class="w3-threequarter">
+        <label for="hostAddress"><b>Host</b></label>
+        <input class="w3-input" type="text" name="host" placeholder="Host Address">
+      </div>
+
+      <div class="w3-quarter">
+        <label for="port"><b>Port</b></label>
+        <input class="w3-input" type="text" name="port" placeholder="Porta MySQL" value="3306">
+      </div>
+
     </div>
 
-  </body>
+
+    <label for="username"><b>Username</b></label>
+    <input class="w3-input" type="username" name="username" placeholder="Username">
+
+
+    <label for="password"><b>Password</b></label>
+    <input class="w3-input" type="password" name="password" placeholder="Password">
+
+    <label for="database"><b>Database</b></label>
+    <input class="w3-input" type="text" name="database" placeholder="Database">
+
+    <button class="c-panel w3-button w3-orange" type="submit">Sign in</button>
+
+  </form>
+
+</body>
+
 </html>

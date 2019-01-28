@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "consign": "^0.1.6",
     "cookie-parser": "~1.4.3",
     "ejs": "~2.5.7",

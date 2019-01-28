@@ -1,6 +1,9 @@
 var express = require("express");
 var consign = require("consign");
 var path = require("path");
+var bodyParser = require("body-parser");
+var session = require("express-session");
+
 
 var app = express();
 
@@ -8,6 +11,17 @@ var viewsPath = path.join(__dirname, "views");
 app.set("views", viewsPath);
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+var sessionOptions = {
+  secret: 'nodemynprog',
+  resave: false,
+  saveUninitialized: true
+};
+
+app.use(session(sessionOptions));
 
 var options = {
   locale: "pt-br",
