@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nodemyn - MySQL Admin</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/w3.css' />
+  </head>
+  <body>
+    <h1>Nodemyn - MySQL Admin</h1>
+    
+    <div class="w3-container w3-mobile w3-display-container w3-border w3-border-red" style="height: 500px;">
+        <form class="w3-display-middle" action="/login" method="POST">
+          <input type="text" name="user[username]" placeholder="Login">
+          <input type="password" name="user[password]" placeholder="Senha">
+          <input type="text" name="user[database]" placeholder="Database">
+          <button type="submit">Entrar</button>
+        </form>
+    </div>
+
+  </body>
+</html>
