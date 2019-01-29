@@ -8,8 +8,8 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-    # volumes: 
-      # - /Users/dielloarias/Desktop/projetos-pessoal/nodemyn/data:/var/lib/mysql
+    volumes: 
+      - /Users/dielloarias/Desktop/projetos-pessoal/nodemyn/data:/var/lib/mysql
     ports:
       - 3306:3306
 
