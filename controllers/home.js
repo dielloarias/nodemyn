@@ -11,24 +11,34 @@ module.exports = function(app) {
 
         let body = req.body;
         let usuario = {
-          hostAddress: body.hostAddress,
+          host: body.host,
           port: body.port,
-          username: body.username,
+          user: body.username,
           password: body.password,
           database: body.database,
         };
   
-        req.session.usuario = usuario;
+        var connection = app.dbc.ConnectionFactory(usuario);
 
-        console.log(req.session.usuario);
+        connection.query("SHOW DATABASES;", function(err, result, fields){
+            if (err) {
+              res.render("error", err);
+              return;
+            }
+
+            req.session.usuario = usuario;
+            console.log(req.session.usuario);
+            res.send("<h1>Login</h1><p> " + JSON.stringify(result) + "</p>");
+
+        });
         
-        // validar se conexão ocorre com sucesso.
+
+        
 
       } catch (error) {
         console.log(error);
       }
 
-      res.send("<h1>Login</h1>");
 
     },
 

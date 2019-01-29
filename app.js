@@ -25,10 +25,11 @@ app.use(session(sessionOptions));
 
 var options = {
   locale: "pt-br",
-  verbose: false
+  // verbose: false
 }
 consign(options)
-  .include("models")
+  .include("dbc")
+  // .then("models")
   .then("controllers")
   .then("routes")
   .into(app);
