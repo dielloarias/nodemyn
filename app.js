@@ -25,7 +25,7 @@ app.use(session(sessionOptions));
 
 var options = {
   locale: "pt-br",
-  // verbose: false
+  verbose: false
 }
 consign(options)
   .include("dbc")
