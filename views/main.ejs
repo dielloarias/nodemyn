@@ -18,10 +18,12 @@
 <body>
     <h1>Página principal</h1>
     
-     
-    <% result.forEach(element => { %>
-        <ul><%= element.Database %></ul>
-    <% }) %>
+    <p>Database</p>
+    <select name="" id="">
+        <% result.forEach(element => { %>
+            <option><%= element.Database %></option>
+        <% }) %>
+    </select>  
     
 </body>
 </html>
