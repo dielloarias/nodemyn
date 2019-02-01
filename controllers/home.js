@@ -26,7 +26,7 @@ module.exports = function(app) {
             }
 
             req.session.usuario = usuario;
-            console.log(result);
+            // console.log(result);
             
             // res.send("<h1>Login</h1><p> " + JSON.stringify(result) + "</p>");
             res.render("main", { result: result, fields: fields });

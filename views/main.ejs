@@ -1,29 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../public/stylesheets/style.css">
-    <link rel="stylesheet" href="../public/stylesheets/w3.css">
-    <link rel="stylesheet" href="../public/stylesheets/custom.css">
+    
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/w3.css">
+    <link rel="stylesheet" href="/stylesheets/custom.css">
+    
+    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
 
-    <title>Document</title>
+    <title>Nodemyn</title>
 </head>
+
+<body>
+
+    <div class="w3-row">
+        <div class="painelEsquerdo w3-quarter w3-border w3-border-red">
+            <p>Database</p>
+            <select name="database" id="database">
+                <% result.forEach(element => { %>
+                    <option value="<%= element.Database %>"  >
+                        <%= element.Database %> 
+                    </option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="w3-rest w3-border w3-border-blue">
+            <textarea class="w3-margin" name="sqlArea" id="sqlArea" cols="80" rows="30"></textarea>
+        </div>
+
+    </div>
+
+    
+</body>
 
     <script>
         
+        $(document).ready(function(){
+            console.log("teste jquery");
+        });
+    
     </script>
 
-<body>
-    <h1>Página principal</h1>
-    
-    <p>Database</p>
-    <select name="" id="">
-        <% result.forEach(element => { %>
-            <option><%= element.Database %></option>
-        <% }) %>
-    </select>  
-    
-</body>
 </html>
