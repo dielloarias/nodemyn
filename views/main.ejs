@@ -1,11 +1,13 @@
 <!DOCTYPE html>
+
 <head>
 
-    
+
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/w3.css">
     <link rel="stylesheet" href="/stylesheets/custom.css">
-    
+    <link rel="stylesheet" href="/stylesheets/main.css">
+
     <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
 
     <title>Nodemyn</title>
@@ -13,32 +15,47 @@
 
 <body>
 
-    <div class="w3-row">
-        <div class="painelEsquerdo w3-quarter w3-border w3-border-red">
-            <p>Database</p>
-            <select name="database" id="database">
-                <% result.forEach(element => { %>
-                    <option value="<%= element.Database %>"  >
-                        <%= element.Database %> 
-                    </option>
-                <% }) %>
-            </select>
-        </div>
+    <div class="w3-card-4">
+
+
+        <!-- <div class="w3-row" style="height: 100%;">
+            <div class="painelEsquerdo w3-quarter w3-border w3-border-red">
+                <p>Database</p>
+                <select name="database" id="database">
+                </select>
+            </div> -->
         <div class="w3-rest w3-border w3-border-blue">
-            <textarea class="w3-margin" name="sqlArea" id="sqlArea" cols="80" rows="30"></textarea>
+
+            <div class="w3-container w3-margin w3-border w3-border-blue">
+                <p>SQL</p>
+
+                <form action="/sql" method="post">
+
+                    <textarea name="campoSQL" id="campoSQL" cols="30" rows="10"></textarea>
+                    <div class="w3-panel">
+                        <button type="submit" class="w3-button w3-orange w3-right">
+                            Execute
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="w3-container w3-margin w3-border w3-border-blue">
+                <p>Result</p>
+                <div id="resultSet" class="w3-panel w3-padding w3-border w3-border-red" ></div>
+            </div>
+
         </div>
 
     </div>
 
-    
+
+    </div>
 </body>
 
-    <script>
-        
-        $(document).ready(function(){
-            console.log("teste jquery");
-        });
-    
-    </script>
+<script>
+    $(document).ready(function() {
+        console.log("teste jquery");
+    });
+</script>
 
 </html>

@@ -33,6 +33,7 @@ function configuraConsign(app) {
   };
   consign(options)
     .include("dbc")
+    .then("transacoes")
     .then("controllers")
     .then("routes")
     .into(app);

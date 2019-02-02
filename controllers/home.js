@@ -8,32 +8,37 @@ module.exports = function(app) {
 
       try {
 
-        let body = req.body;
-        let usuario = {
+        var body = req.body;
+        var usuario = {
           host: body.host,
           port: body.port,
           user: body.username,
           password: body.password,
           database: body.database,
         };
-  
+
         var connection = app.dbc.ConnectionFactory(usuario);
+        var transacao = new app.transacoes.Transacao(connection);
 
-        connection.query("SHOW DATABASES;", function(err, result, fields){
-            if (err) {
-              res.render("error", err);
-              return;
-            }
+        const sql = "SHOW DATABASES;";
+        const callback = function(err, result, fields) {
+          if (err) {
+            res.render("error", {
+              error: err
+            });
+            connection.end();
+            return;
+          }
+          req.session.usuario = usuario;
 
-            req.session.usuario = usuario;
-            // console.log(result);
-            
-            // res.send("<h1>Login</h1><p> " + JSON.stringify(result) + "</p>");
-            res.render("main", { result: result, fields: fields });
-        });
-        
+          connection.end();
+          res.render("main", {
+            databases: result,
+            metadataDb: fields
+          });
+        };
 
-        
+        transacao.transacao(sql, callback);
 
       } catch (error) {
         console.log(error);
